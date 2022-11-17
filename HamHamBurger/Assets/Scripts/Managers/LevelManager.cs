@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.AI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class LevelManager : MonoBehaviour
         LoadLevel(false);
     }
     #endregion
-
+    public List<NavMeshSurface> surafecs;
     public List<GameObject> levels;
     private GameObject currentLevel;
     private int levelIndex;
@@ -32,6 +33,7 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1f;
         UIManager.Instance.CloseGameOverPanel();
         UIManager.Instance.CloseSuccessPanel();
+        currentLevel.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
     
 }
