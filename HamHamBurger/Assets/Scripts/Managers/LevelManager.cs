@@ -29,6 +29,9 @@ public class LevelManager : MonoBehaviour
         if (currentLevel)
             Destroy(currentLevel);
         currentLevel = Instantiate(levels[levelIndex % levels.Count]);
+        Time.timeScale = 1f;
+        UIManager.Instance.CloseGameOverPanel();
+        UIManager.Instance.CloseSuccessPanel();
     }
     
 }

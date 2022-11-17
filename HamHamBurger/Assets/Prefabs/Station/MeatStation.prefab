@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2333677302570604168, guid: 535593fb5d315dc4ea88730dc26b61d2, type: 3}
       propertyPath: m_Name
-      value: Station
+      value: MeatStation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333677302570604168, guid: 535593fb5d315dc4ea88730dc26b61d2, type: 3}
+      propertyPath: m_TagString
+      value: Meat
       objectReference: {fileID: 0}
     - target: {fileID: 2333677302570604171, guid: 535593fb5d315dc4ea88730dc26b61d2, type: 3}
       propertyPath: m_RootOrder
