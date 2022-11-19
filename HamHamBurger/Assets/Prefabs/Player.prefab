@@ -1,5 +1,75 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7543830727961656731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872849854399828499}
+  - component: {fileID: 3148395626217855817}
+  - component: {fileID: 2199100020180502861}
+  m_Layer: 0
+  m_Name: FoodPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6872849854399828499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543830727961656731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.54, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7852611323044725404}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3148395626217855817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543830727961656731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0865aa7bfb172044af366f344ca6d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foods:
+  - {fileID: 3304623914980003374, guid: 22c0367c363b4ba4dac7aacec44fd827, type: 3}
+  - {fileID: 8092954248214737846, guid: 262559a052cd63c4e93d8f0e6d30b165, type: 3}
+  - {fileID: 2169582282049295401, guid: 5505881f958b8d649acbc21954e748e5, type: 3}
+  - {fileID: 7594110911867940064, guid: e7b2f5acdb164d04ea10e2711b8f5abf, type: 3}
+  - {fileID: 243785580754846861, guid: 6d97ce8675e18af4a81d150f04a351ef, type: 3}
+  - {fileID: 1992445077607502410, guid: 686ffae7c02de9e48baa84cbb59cfe45, type: 3}
+  - {fileID: 7798447819269591229, guid: 9361b79d2f757d348927cddffc54b0fb, type: 3}
+  currentFood: {fileID: 3304623914980003374, guid: 22c0367c363b4ba4dac7aacec44fd827, type: 3}
+  foodPoint: {fileID: 6872849854399828499}
+  currentFoodType: 0
+  isOrderServiced: 0
+--- !u!114 &2199100020180502861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543830727961656731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56bdab76a32f414fa9466777dd0c20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentFoodData: {fileID: 0}
+  foodController: {fileID: 0}
 --- !u!1 &8522090168412684441
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +79,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7852611323044725404}
+  - component: {fileID: 2766872672351485191}
+  - component: {fileID: 2179258272734850198}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -28,9 +100,37 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6587274631172865406}
+  - {fileID: 6872849854399828499}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2766872672351485191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522090168412684441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26929353082e74148bcd304c0c1d317d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foods: []
+  foodStack: {fileID: 6872849854399828499}
+  isHandEmpty: 1
+--- !u!114 &2179258272734850198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522090168412684441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ef0e3bcd7fe5c418f9052d927ced7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6692360166810933909
 PrefabInstance:
   m_ObjectHideFlags: 0

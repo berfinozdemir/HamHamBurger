@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
     #endregion
     public List<NavMeshSurface> surafecs;
     public List<GameObject> levels;
-    private GameObject currentLevel;
+    public GameObject currentLevel;
     private int levelIndex;
     public void LoadLevel(bool isSuccess)
     {
