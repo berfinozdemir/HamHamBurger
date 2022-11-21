@@ -23,7 +23,6 @@ public class Station : MonoBehaviour
     {
         yield return new WaitForSeconds(foodData.CookTime);
         CookFood();
-
     }
     public void CookFood()
     {

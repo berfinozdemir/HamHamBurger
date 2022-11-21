@@ -15,14 +15,25 @@ public class BreadMeatState : BaseFoodState
     }
     public override void OnTriggerEnter(Collider other, FoodStateManager stateManager)
     {
-        if (other.CompareTag("Tomato"))
-            stateManager.SwitchState(stateManager.BurgerState);
-        else if (other.CompareTag("TablePoint") && FoodController.Instance.currentFoodType == other.GetComponentInParent<Table>().GetOrderType())
+        //if (other.CompareTag("TablePoint") && FoodController.Instance.currentFoodType == other.GetComponentInParent<Table>().GetOrderType())
+        //{
+        //    stateManager.SwitchState(stateManager.NoneState);
+        //    FoodController.Instance.isOrderServiced = true;
+        //}
+        if (other.CompareTag("Station"))
         {
-            stateManager.SwitchState(stateManager.NoneState);
-            FoodController.Instance.isOrderServiced = true;
+            var type = other.GetComponentInChildren<Food>().foodData.foodType;
+            switch (type)
+            {
+                case FoodType.Tomato:
+                    stateManager.SwitchState(stateManager.BurgerState);
+                    break;
+                case FoodType.None:
+                    stateManager.SwitchState(stateManager.NoneState);
+                    break;
+                default:
+                    break;
+            }
         }
-        else if (other.CompareTag("Trash"))
-            stateManager.SwitchState(stateManager.NoneState);
     }
 }

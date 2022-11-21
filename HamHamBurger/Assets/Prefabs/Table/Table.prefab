@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1855874709030958511}
   m_Layer: 0
   m_Name: Table
-  m_TagString: Untagged
+  m_TagString: TablePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff0a654464806a84bb4e3fccdb750ce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEmpty: 0
+  isEmpty: 1
   waitPoint: {fileID: 2361244119160730290}
   playerPoint: {fileID: 1311659724186694209}
   order: {fileID: 0}

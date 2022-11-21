@@ -14,9 +14,8 @@ public class PlayerResourceHolder : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Station")
+        if (other.tag == "Station" )
         {
-            //var food = other.GetComponent<  >();
             var station = other.GetComponent<Station>();
             var food = station.GetComponentInChildren<Food>();
             if (!food)
@@ -24,22 +23,24 @@ public class PlayerResourceHolder : MonoBehaviour
             station.FoodTaken();
             AddNewFood(food);
             isHandEmpty = false;
-
+        //    Debug.Log("trigged");
         }
+        
     }
     public void AddNewFood(Food food)
     {
         foods.Add(food);
-        food.transform.parent = foodStack;
+        
+        //food.transform.parent = foodStack;
     }
-    public void GiveFoodToTable()//Food food)
-    {
-        //Destroy(food.gameObject);
-        //foods.Remove(food);
-        //if (foods.Count == 0)
-        isHandEmpty = true;
-        //Debug.Log("skdjk");
-    }
+    //public void GiveFoodToTable()//Food food)
+    //{
+    //    //Destroy(food.gameObject);
+    //    //foods.Remove(food);
+    //    //if (foods.Count == 0)
+    //    isHandEmpty = true;
+    //    //Debug.Log("skdjk");
+    //}
     //public void CleanResources()
     //{
     //    foreach (var item in foods)

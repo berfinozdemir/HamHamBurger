@@ -30,9 +30,9 @@ public class CustomerManager : MonoBehaviour
     public void AddNewCustomer()
     {
         Vector3 pos = door.position;
-        if (customers.Count >= TableManager.Instance.tables.Length)
+        if (customers.Count >= TableManager.Instance.tables.Count)
         {
-            pos.z += 10f *(customers.Count - TableManager.Instance.tables.Length) ;
+            pos.z += 10f *(customers.Count - TableManager.Instance.tables.Count) ;
         }
         var customer = Instantiate(customerPrefab, pos ,Quaternion.identity,this.transform);
         customers.Add(customer.GetComponent<Customer>());

@@ -15,9 +15,24 @@ public class MeatState : BaseFoodState
     }
     public override void OnTriggerEnter(Collider other, FoodStateManager stateManager)
     {
-        if (other.CompareTag("Bread"))
-            stateManager.SwitchState(stateManager.BreadMeatState);
-        else if (other.CompareTag("Trash"))
-            stateManager.SwitchState(stateManager.NoneState);
+        //if (other.CompareTag("Bread"))
+        //    stateManager.SwitchState(stateManager.BreadMeatState);
+        //else if (other.CompareTag("Trash"))
+        //    stateManager.SwitchState(stateManager.NoneState);
+        if (other.CompareTag("Station"))
+        {
+            var type = other.GetComponentInChildren<Food>().foodData.foodType;
+            switch (type)
+            {
+                case FoodType.Bread:
+                    stateManager.SwitchState(stateManager.BreadMeatState);
+                    break;
+                case FoodType.None:
+                    stateManager.SwitchState(stateManager.NoneState);
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

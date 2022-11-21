@@ -14,8 +14,7 @@ public class FoodStateManager : MonoBehaviour
     public BreadMeatState BreadMeatState = new BreadMeatState();
     public BreadTomatoState BreadTomatoState = new BreadTomatoState();
 
-    public FoodData currentFoodData;
-    public FoodController foodController;
+    private FoodController foodController;
 
 
     private void Start()

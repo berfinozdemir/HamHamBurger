@@ -8,6 +8,11 @@ TagManager:
   - Bread
   - Meat
   - Tomato
+  - Door
+  - Outside
+  - Station
+  - TablePoint
+  - Trash
   layers:
   - Default
   - TransparentFX
