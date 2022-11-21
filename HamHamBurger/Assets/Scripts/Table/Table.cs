@@ -11,6 +11,7 @@ public class Table : MonoBehaviour
     public Transform playerPoint;
 
     public OrderData order;
+    public FoodType foodType;
     public Image orderImg;
     public bool isOrderCame;
     public bool isCustomerLeft;
@@ -36,7 +37,8 @@ public class Table : MonoBehaviour
     }
     public FoodType GetOrderType()
     {
-        Debug.Log(order.foodType);
+        if (!order)
+            return FoodType.None;
         return order.foodType;
     }
     public void CloseOrderImage()

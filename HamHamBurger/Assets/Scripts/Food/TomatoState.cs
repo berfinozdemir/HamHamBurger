@@ -18,6 +18,8 @@ public class TomatoState : BaseFoodState
         //    stateManager.SwitchState(stateManager.BreadTomatoState);
         //else if (other.CompareTag("Trash"))
         //    stateManager.SwitchState(stateManager.NoneState);
+        if (other.CompareTag("Trash"))
+            stateManager.SwitchState(stateManager.NoneState);
         if (other.CompareTag("Station"))
         {
             var type = other.GetComponentInChildren<Food>().foodData.foodType;

@@ -7,13 +7,14 @@ public class NoneState : BaseFoodState
     public override void EnterState(FoodStateManager stateManager)
     {
         FoodController.Instance.SetFood(FoodType.None);
-        //Debug.Log("nonestate");
     }
     public override void UpdateState(FoodStateManager stateManager)
     {
     }
     public override void OnTriggerEnter(Collider other, FoodStateManager stateManager)
     {
+        if(other.CompareTag("Trash"))
+            stateManager.SwitchState(stateManager.NoneState);
         if (other.CompareTag("Station"))
         {
             var type = other.GetComponentInChildren<Food>().foodData.foodType;
@@ -24,7 +25,6 @@ public class NoneState : BaseFoodState
                     break;
                 case FoodType.Meat:
                     stateManager.SwitchState(stateManager.MeatState);
-                    Debug.Log("meat");
                     break;
                 case FoodType.Tomato:
                     stateManager.SwitchState(stateManager.TomatoState);

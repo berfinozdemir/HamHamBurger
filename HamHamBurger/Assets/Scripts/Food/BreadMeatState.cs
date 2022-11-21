@@ -20,6 +20,8 @@ public class BreadMeatState : BaseFoodState
         //    stateManager.SwitchState(stateManager.NoneState);
         //    FoodController.Instance.isOrderServiced = true;
         //}
+        if (other.CompareTag("Trash"))
+            stateManager.SwitchState(stateManager.NoneState);
         if (other.CompareTag("Station"))
         {
             var type = other.GetComponentInChildren<Food>().foodData.foodType;

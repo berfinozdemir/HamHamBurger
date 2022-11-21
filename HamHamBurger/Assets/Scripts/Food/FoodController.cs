@@ -25,7 +25,7 @@ public class FoodController : MonoBehaviour
     public void SetFood(FoodType foodType)
     {
         if (currentFood)
-            if (currentFood.activeInHierarchy) currentFood=null ;
+            if (currentFood.activeInHierarchy) Destroy(currentFood.gameObject);
         currentFoodType = foodType;
 
         switch (foodType)

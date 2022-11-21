@@ -15,22 +15,26 @@ public class PlayerService : MonoBehaviour
         if (other.CompareTag("TablePoint")/* && !other.GetComponentInParent<Table>().isCustomerLeft*/)
         {
             FoodService(other);
+            //Debug.Log("TABLE");
         }
 
     }
     public void FoodService(Collider other)
     {
         Table table = other.GetComponentInParent<Table>();
+        //Debug.Log(table.GetOrderType());
         var order = table.order.food;
-        //var food = GetComponentInChildren<Food>().;
-        //if (order==null || !food.foodData )
-        //    return;
-        if (FoodController.Instance.isOrderServiced)
+        Debug.Log(order);
+        var food = GetComponentInChildren<Food>();
+        if ( !order || !food.foodData )
+            return;
+        Debug.Log(food.foodData);
+        if (!FoodController.Instance.isOrderServiced)
         {
             table.isOrderCame = true;
             table.OnOrderCame();
             //playerResource.GiveFoodToTable();// food);
-            Debug.Log("order came");
+            Debug.Log("order came");    
         }
     }
 }

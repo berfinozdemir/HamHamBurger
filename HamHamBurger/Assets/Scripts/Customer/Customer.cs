@@ -66,12 +66,11 @@ public class Customer : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
         order = OrderManager.Instance.SelectRandomOrder();
-        //Debug.Log(order.foodType);
         table.order = order;
+        Debug.Log(table.order + " " + order);
         table.OnOrderSet(order);
         customerUI.BeginTimer();
         isOrdered = true;
-        //Debug.Log(order.OrderNo);
     }
     public bool isOrdered;
     public void PayFood()

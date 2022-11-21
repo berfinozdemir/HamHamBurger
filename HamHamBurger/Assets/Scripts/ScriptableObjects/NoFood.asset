@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NoFood
   m_EditorClassIdentifier: 
   FoodNo: 0
-  foodPrefab: {fileID: 0}
+  foodPrefab: {fileID: 3304623914980003374, guid: 22c0367c363b4ba4dac7aacec44fd827, type: 3}
   CookTime: 0
   FoodName: 
   foodType: 0

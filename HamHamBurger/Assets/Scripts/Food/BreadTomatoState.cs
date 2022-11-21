@@ -20,6 +20,8 @@ public class BreadTomatoState : BaseFoodState
         //    stateManager.SwitchState(stateManager.BurgerState);
         //else if (other.CompareTag("Trash"))
         //    stateManager.SwitchState(stateManager.NoneState);
+        if (other.CompareTag("Trash"))
+            stateManager.SwitchState(stateManager.NoneState);
         if (other.CompareTag("Station"))
         {
             var type = other.GetComponentInChildren<Food>().foodData.foodType;
