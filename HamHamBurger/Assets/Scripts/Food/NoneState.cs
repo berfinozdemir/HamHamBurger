@@ -7,7 +7,7 @@ public class NoneState : BaseFoodState
     public override void EnterState(FoodStateManager stateManager)
     {
         FoodController.Instance.SetFood(FoodType.None);
-        Debug.Log("nonestate");
+        //Debug.Log("nonestate");
     }
     public override void UpdateState(FoodStateManager stateManager)
     {

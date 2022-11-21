@@ -7,7 +7,7 @@ public class BreadState : BaseFoodState
     public override void EnterState(FoodStateManager stateManager)
     {
         FoodController.Instance.SetFood(FoodType.Bread);
-        Debug.Log("bread state");
+        //Debug.Log("bread state");
 
     }
     public override void UpdateState(FoodStateManager stateManager)

@@ -33,7 +33,10 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1f;
         UIManager.Instance.CloseGameOverPanel();
         UIManager.Instance.CloseSuccessPanel();
-        currentLevel.GetComponent<NavMeshSurface>().BuildNavMesh();
+          
     }
-    
+    void OnEnable()
+    {
+        NavMesh.Instance.UpdateNavmesh();
+    }
 }

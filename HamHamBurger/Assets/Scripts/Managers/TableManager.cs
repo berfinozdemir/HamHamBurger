@@ -54,5 +54,6 @@ public class TableManager : MonoBehaviour
             tables.Add(table.GetComponent<Table>());
             table.GetComponent<Table>().CloseOrderImage();
         }
+        NavMesh.Instance.UpdateNavmesh();
     }
 }
