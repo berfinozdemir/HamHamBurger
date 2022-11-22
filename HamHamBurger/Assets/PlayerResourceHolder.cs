@@ -33,14 +33,11 @@ public class PlayerResourceHolder : MonoBehaviour
         
         //food.transform.parent = foodStack;
     }
-    //public void GiveFoodToTable()//Food food)
-    //{
-    //    //Destroy(food.gameObject);
-    //    //foods.Remove(food);
-    //    //if (foods.Count == 0)
-    //    isHandEmpty = true;
-    //    //Debug.Log("skdjk");
-    //}
+    public void GiveFoodToTable()//Food food)
+    {
+        //if (foods.Count == 0)
+        isHandEmpty = true;
+    }
     //public void CleanResources()
     //{
     //    foreach (var item in foods)

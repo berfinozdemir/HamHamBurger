@@ -16,9 +16,9 @@ public class OrderManager : MonoBehaviour
         Instance = this;
     }
     #endregion
-    public List<OrderData> orders;
+    public List<FoodData> orders;
 
-    public OrderData SelectRandomOrder()
+    public FoodData SelectRandomOrder()
     {
         int i = Random.Range(0, orders.Count - 1);
         return orders[i];

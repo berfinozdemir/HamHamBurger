@@ -10,20 +10,19 @@ public class Table : MonoBehaviour
     public Transform waitPoint;
     public Transform playerPoint;
 
-    public OrderData order;
-    public FoodType foodType;
+    public FoodData order;
+    public int foodNo;
+
     public Image orderImg;
     public bool isOrderCame;
     public bool isCustomerLeft;
-    TableUI tableUI;
     private void Start()
     {
-        tableUI = GetComponentInParent<TableUI>();
         CloseOrderImage();
     }
-    public void OnOrderSet(OrderData order)
+    public void OnOrderSet(FoodData order)
     {
-        var selectedOrderSprite = order.orderImage;
+        var selectedOrderSprite = order.foodSprite;
         OpenOrderImage(selectedOrderSprite);
     }
     public void OnOrderCame()
@@ -35,11 +34,11 @@ public class Table : MonoBehaviour
         isCustomerLeft = true;
         CloseOrderImage();
     }
-    public FoodType GetOrderType()
+    public FoodData GetOrderType()
     {
-        if (!order)
-            return FoodType.None;
-        return order.foodType;
+        //if (!order)
+        //    return FoodType.None;
+        return order;
     }
     public void CloseOrderImage()
     {

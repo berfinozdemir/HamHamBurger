@@ -10,4 +10,6 @@ public class FoodData : ScriptableObject
     public float CookTime;
     public string FoodName;
     public FoodType foodType;
+    public Sprite foodSprite;
+    public int price;
 }

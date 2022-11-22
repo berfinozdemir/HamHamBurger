@@ -14,14 +14,11 @@ public class BurgerState : BaseFoodState
     }
     public override void OnTriggerEnter(Collider other, FoodStateManager stateManager)
     {
-        if (other.CompareTag("TablePoint") && FoodController.Instance.currentFoodType == other.GetComponentInParent<Table>().GetOrderType())
+        if (other.CompareTag("TablePoint") && FoodController.Instance.currentFoodType == other.GetComponentInParent<Table>().GetOrderType().foodType)
         {
-            stateManager.SwitchState(stateManager.NoneState);
             FoodController.Instance.isOrderServiced = true;
-            Debug.Log("matched");
+            stateManager.SwitchState(stateManager.NoneState);
         }
-        //else if (other.CompareTag("Trash"))
-        //    stateManager.SwitchState(stateManager.NoneState);
         if (other.CompareTag("Trash"))
             stateManager.SwitchState(stateManager.NoneState);
 

@@ -10,7 +10,7 @@ public class Customer : MonoBehaviour
     public NavMeshAgent agent;
     public Table table;
     public AnimatorController animatorController;
-    public OrderData order;
+    public FoodData order;
     CustomerUI customerUI;
     private void Awake()
     {
@@ -66,8 +66,10 @@ public class Customer : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
         order = OrderManager.Instance.SelectRandomOrder();
+        //table.foodType = FoodType.Burger;
+        table.foodNo = order.FoodNo;
         table.order = order;
-        Debug.Log(table.order + " " + order);
+        //Debug.Log(table.foodNo + " + " + table.order);
         table.OnOrderSet(order);
         customerUI.BeginTimer();
         isOrdered = true;
@@ -75,6 +77,6 @@ public class Customer : MonoBehaviour
     public bool isOrdered;
     public void PayFood()
     {
-        DataManager.Instance.GetPayment(order.Price);
+        DataManager.Instance.GetPayment(order.price);
     }
 }

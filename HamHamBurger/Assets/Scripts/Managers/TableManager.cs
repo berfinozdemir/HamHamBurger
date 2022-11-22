@@ -20,6 +20,7 @@ public class TableManager : MonoBehaviour
     public List<Table> emptyTables;
     public GameObject TablePrefab;
     public TableUI TableUI;
+    public Transform[] tablePoints;
     private void Start()
     {
         //tables = GetComponentsInChildren<Table>();
@@ -50,7 +51,7 @@ public class TableManager : MonoBehaviour
     {
         for (int i = 0; i < DataManager.Instance.tableCount; i++)
         {
-            var table = Instantiate(TablePrefab, new Vector3(0,0,(i+1)*10),Quaternion.identity,this.transform);
+            var table = Instantiate(TablePrefab, tablePoints[i].position,Quaternion.identity,this.transform);
             tables.Add(table.GetComponent<Table>());
             table.GetComponent<Table>().CloseOrderImage();
         }
