@@ -6,13 +6,9 @@ using UnityEngine.UI;
 public class Table : MonoBehaviour
 {
     public bool isEmpty;
-
     public Transform waitPoint;
     public Transform playerPoint;
-
     public FoodData order;
-    public int foodNo;
-
     public Image orderImg;
     public bool isOrderCame;
     public bool isCustomerLeft;
@@ -36,8 +32,6 @@ public class Table : MonoBehaviour
     }
     public FoodData GetOrderType()
     {
-        //if (!order)
-        //    return FoodType.None;
         return order;
     }
     public void CloseOrderImage()

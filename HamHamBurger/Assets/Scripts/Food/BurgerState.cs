@@ -7,15 +7,16 @@ public class BurgerState : BaseFoodState
     public override void EnterState(FoodStateManager stateManager)
     {
         FoodController.Instance.SetFood(FoodType.Burger);
-        //Debug.Log("buregr sttae");
     }
     public override void UpdateState(FoodStateManager stateManager)
     {
     }
     public override void OnTriggerEnter(Collider other, FoodStateManager stateManager)
     {
-        if (other.CompareTag("TablePoint") && FoodController.Instance.currentFoodType == other.GetComponentInParent<Table>().GetOrderType().foodType)
+        if (other.CompareTag("TablePoint") )
         {
+            if (FoodController.Instance.isOrderServiced || FoodController.Instance.currentFoodType != other.GetComponentInParent<Table>().GetOrderType().foodType)
+                return;
             FoodController.Instance.isOrderServiced = true;
             stateManager.SwitchState(stateManager.NoneState);
         }

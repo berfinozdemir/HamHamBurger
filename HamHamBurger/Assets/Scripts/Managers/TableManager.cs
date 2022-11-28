@@ -23,7 +23,6 @@ public class TableManager : MonoBehaviour
     public Transform[] tablePoints;
     private void Start()
     {
-        //tables = GetComponentsInChildren<Table>();
         CreateTables();
         UpdateEmptyTables();
         TableUI = GetComponent<TableUI>();
