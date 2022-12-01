@@ -16,12 +16,14 @@ public class WalkState : BaseState
     {
         if (other.CompareTag("WaitPoint"))
         {
+            var table = other.gameObject.GetComponentInParent<Table>();
+            if (table != customer.table)
+                return;
             customer.Wait();
             
             stateManager.SwitchState(stateManager.OrderState);
-            var table = other.gameObject.GetComponentInParent<Table>();
             table.isCustomerLeft = false;
-            customer.table = table;
+            //customer.table = table;
         }
     }
     public override void UpdateState(CustomerStateManager stateManager)

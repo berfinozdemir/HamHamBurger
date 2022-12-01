@@ -28,7 +28,7 @@ public class Customer : MonoBehaviour
     }
     public void MoveTable()
     {
-        agent.SetDestination(TableManager.Instance.AddCustomerToTable());
+        agent.SetDestination(TableManager.Instance.AddCustomerToTable(this));
         animatorController.PlayWalkAnimation(agent.velocity.magnitude);
 
     }
@@ -74,7 +74,6 @@ public class Customer : MonoBehaviour
     public bool isOrdered;
     public void PayFood()
     {
-        Debug.Log(order.price);
         DataManager.Instance.GetPayment(order.price);
     }
 }

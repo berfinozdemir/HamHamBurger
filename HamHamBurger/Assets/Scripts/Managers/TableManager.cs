@@ -27,12 +27,14 @@ public class TableManager : MonoBehaviour
         UpdateEmptyTables();
         TableUI = GetComponent<TableUI>();
     }
-    public Vector3 AddCustomerToTable()
+    public Vector3 AddCustomerToTable(Customer customer)
     {
         Vector3 position = emptyTables[0].waitPoint.position;
+        customer.table = emptyTables[0];
         emptyTables[0].isEmpty = false;
         emptyTables.RemoveAt(0);
         UpdateEmptyTables();
+        
 
         return position;
     }
