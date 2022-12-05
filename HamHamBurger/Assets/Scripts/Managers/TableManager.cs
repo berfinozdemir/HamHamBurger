@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.AI;
 public class TableManager : MonoBehaviour
 {
     public static TableManager Instance;
@@ -21,6 +21,7 @@ public class TableManager : MonoBehaviour
     public GameObject TablePrefab;
     public TableUI TableUI;
     public Transform[] tablePoints;
+    public NavMeshSurface navMeshSurface;
     private void Start()
     {
         CreateTables();
@@ -46,7 +47,6 @@ public class TableManager : MonoBehaviour
             if (item.isEmpty)
                 emptyTables.Add(item);
         }
-
     }
     public void CreateTables()
     {
@@ -56,6 +56,7 @@ public class TableManager : MonoBehaviour
             tables.Add(table.GetComponent<Table>());
             table.GetComponent<Table>().CloseOrderImage();
         }
-        NavMesh.Instance.UpdateNavmesh();
+        //NavMesh.Instance.UpdateNavmesh();
+        navMeshSurface.BuildNavMesh();
     }
 }

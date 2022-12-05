@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerService : MonoBehaviour
 {
-
     PlayerResourceHolder playerResource;
     private void Start()
     {
@@ -22,7 +21,7 @@ public class PlayerService : MonoBehaviour
     }
     public void FoodService(Table other)
     {
-        Debug.Log(other.isCustomerLeft + " iscustomerleft");
+        //Debug.Log(other.isCustomerLeft + " iscustomerleft");
         var food = GetComponentInChildren<Food>();
         if (!food.foodData || food.foodData != other.order)
             return;

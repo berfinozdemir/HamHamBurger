@@ -15,15 +15,18 @@ public class Table : MonoBehaviour
     private void Start()
     {
         CloseOrderImage();
+        playerPoint.GetComponent<Collider>().enabled = false;
     }
     public void OnOrderSet(FoodData order)
     {
         var selectedOrderSprite = order.foodSprite;
         OpenOrderImage(selectedOrderSprite);
+        playerPoint.GetComponent<Collider>().enabled = true;
     }
     public void OnOrderCame()
     {
         CloseOrderImage();
+        playerPoint.GetComponent<Collider>().enabled = false;
     }
     public void CustomerLeft()
     {
