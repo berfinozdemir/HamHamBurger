@@ -15,7 +15,7 @@ public class FoodStateManager : MonoBehaviour
     public BreadTomatoState BreadTomatoState = new BreadTomatoState();
 
     private FoodController foodController;
-
+    public ParticleSystem particle;
 
     private void Start()
     {
@@ -36,8 +36,10 @@ public class FoodStateManager : MonoBehaviour
     public void SwitchState(BaseFoodState state)
     {
         currentState = state;
+        //Instantiate(particle, transform);
         //currentFoodData = foodData;
         //foodController.SetFood(foodData);
+        particle.Play();
         state.EnterState(this);
     }
     
