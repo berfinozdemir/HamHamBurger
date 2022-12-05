@@ -21,15 +21,23 @@ public class LevelManager : MonoBehaviour
     #endregion
     public List<NavMeshSurface> surafecs;
     public List<GameObject> levels;
-    public GameObject currentLevel;
+    public Level currentLevel;
     private int levelIndex;
+    private LevelData CurrentLevelData;
     public void LoadLevel(bool isSuccess)
     {
         if (isSuccess)
             levelIndex++;
         if (currentLevel)
-            Destroy(currentLevel);
-        currentLevel = Instantiate(levels[levelIndex % levels.Count]);
+        {
+            Destroy(currentLevel.gameObject);
+
+        }
+        var level = Instantiate(levels[levelIndex % levels.Count]);
+        currentLevel = level.GetComponent<Level>();
+        TableManager.Instance.CreateTables();
+        GamePlayManager.Instance.StartCreateCustomers();
+        //CurrentLevelData = currentLevel.GetComponent<Level>().levelData;
         Time.timeScale = 1f;
         UIManager.Instance.CloseGameOverPanel();
         UIManager.Instance.CloseSuccessPanel();

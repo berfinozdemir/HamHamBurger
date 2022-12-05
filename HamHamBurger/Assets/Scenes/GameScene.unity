@@ -2599,6 +2599,10 @@ PrefabInstance:
       propertyPath: tableCount
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 3567233792844287025, guid: 9db8e3a23dac4224c8c554e2171c6f21, type: 3}
+      propertyPath: customerCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9db8e3a23dac4224c8c554e2171c6f21, type: 3}
 --- !u!1001 &5320171437782154541
@@ -2670,6 +2674,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5924643343892102178, guid: 9e5fd3665a9c50c4d809e5963bd72881, type: 3}
+      propertyPath: levels.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5924643343892102178, guid: 9e5fd3665a9c50c4d809e5963bd72881, type: 3}
+      propertyPath: levels.Array.data[1]
+      value: 
+      objectReference: {fileID: 1255399853349015126, guid: 88b6c98d078fdba42baab1d1869bf8d9, type: 3}
     - target: {fileID: 5924643343892102179, guid: 9e5fd3665a9c50c4d809e5963bd72881, type: 3}
       propertyPath: m_Name
       value: LevelManager

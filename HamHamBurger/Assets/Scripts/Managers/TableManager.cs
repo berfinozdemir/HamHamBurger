@@ -24,7 +24,7 @@ public class TableManager : MonoBehaviour
     public NavMeshSurface navMeshSurface;
     private void Start()
     {
-        CreateTables();
+        //CreateTables();
         UpdateEmptyTables();
         TableUI = GetComponent<TableUI>();
     }
@@ -50,7 +50,7 @@ public class TableManager : MonoBehaviour
     }
     public void CreateTables()
     {
-        for (int i = 0; i < DataManager.Instance.tableCount; i++)
+        for (int i = 0; i < LevelManager.Instance.currentLevel.levelData.TableCount; i++)
         {
             var table = Instantiate(TablePrefab, tablePoints[i].position,Quaternion.identity,this.transform);
             tables.Add(table.GetComponent<Table>());

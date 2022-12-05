@@ -26,15 +26,18 @@ public class GamePlayManager : MonoBehaviour
     void Start()
     {
         //LoadGame();
+        
+    }
+    public void StartCreateCustomers()
+    {
         CustomerManager.Instance.AddNewCustomer();
         customerCount++;
         coroutine = WaitAndSpawn(DataManager.Instance.CustomerCameTime);
         StartCoroutine(coroutine);
     }
-
     IEnumerator WaitAndSpawn(float waitTime)
     {
-        while (customerCount < DataManager.Instance.customerCount)
+        while (customerCount < LevelManager.Instance.currentLevel.levelData.CustomerCount)
         {
             yield return new WaitForSeconds(waitTime);
             CustomerManager.Instance.AddNewCustomer();
@@ -44,11 +47,12 @@ public class GamePlayManager : MonoBehaviour
     public bool IsGameEnd()
     {
         bool gameEnd = false;
-        if (customerCount == DataManager.Instance.customerCount && CustomerManager.Instance.customers.Count == 0)
+        if (customerCount == LevelManager.Instance.currentLevel.levelData.CustomerCount && CustomerManager.Instance.customers.Count == 0)
         {
             gameEnd = true;
             OnGameEnd?.Invoke();
         }
+        customerCount = 0;
         return gameEnd;
     }
     public void OnGameSuccess()
