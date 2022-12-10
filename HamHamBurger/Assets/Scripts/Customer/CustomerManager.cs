@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
 {
-    //#region Singleton
-    //public static CustomerManager Instance;
-    //private void Awake()
-    //{
-    //    if (Instance)
-    //    {
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-    //    Instance = this;
-    //}
-    //#endregion 
     public GameObject customerPrefab;
     public Transform door;
     public Transform outside;
@@ -33,7 +21,7 @@ public class CustomerManager : MonoBehaviour
         Vector3 pos = door.position;
         if (customers.Count >= TableManager.Instance.tables.Count)
         {
-            pos.z += 10f *(customers.Count - TableManager.Instance.tables.Count) ;
+            pos.z += 10f *(customers.Count - TableManager.Instance.tables.Count);
         }
         var customer = Instantiate(customerPrefab, pos ,Quaternion.identity,this.transform);
         customers.Add(customer.GetComponent<Customer>());
@@ -43,7 +31,13 @@ public class CustomerManager : MonoBehaviour
         customers.Remove(customer);
         Destroy(customer.gameObject);
     }
-    
+    public void CleanAllCustomers()//hata veriyor
+    {
+        foreach (var item in customers)
+        {
+            RemoveCustomer(item);
+        }
+    }
     
     
 }

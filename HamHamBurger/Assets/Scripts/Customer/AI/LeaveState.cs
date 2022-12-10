@@ -16,7 +16,6 @@ public class LeaveState : BaseState
         if (other.CompareTag("Outside"))
         {
             customer._customerManager.RemoveCustomer(customer);
-            
             GamePlayManager.Instance.IsGameEnd();
         }
 

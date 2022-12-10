@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     #endregion
     private void Start()
     {
-        LoadLevel(false);
+        //LoadLevel(false);
 
     }
     private DataManager _dataManager;

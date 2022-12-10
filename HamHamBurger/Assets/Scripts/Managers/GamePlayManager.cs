@@ -24,8 +24,7 @@ public class GamePlayManager : MonoBehaviour
     public CustomerManager _customerManager;
     void Start()
     {
-        //LoadGame();
-        
+        LevelManager.Instance.LoadLevel(false);
     }
     void Subscribe()
     {
@@ -62,11 +61,11 @@ public class GamePlayManager : MonoBehaviour
         }
         return gameEnd;
     }
-    public void OnGameSuccess()
-    {
-        Time.timeScale = 0;
-        // LevelManager.Instance.OnGameSuccess();
-    }
+    //public void OnGameSuccess()
+    //{
+    //    Time.timeScale = 0;
+    //    // LevelManager.Instance.OnGameSuccess();
+    //}
     public void OnGameOver()
     {
         UIManager.Instance.OpenGameOverPanel();
