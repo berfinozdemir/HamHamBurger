@@ -13,12 +13,15 @@ public class Customer : MonoBehaviour
     public FoodData order;
     CustomerUI customerUI;
     public CustomerManager _customerManager;
+    OrderManager orderManager;
     private void Awake()
     {
         _customerManager = GetComponentInParent<CustomerManager>();
         agent = GetComponent<NavMeshAgent>();
         animatorController = GetComponentInChildren<AnimatorController>();
         customerUI = GetComponent<CustomerUI>();
+        orderManager = _customerManager.orderManager;
+        
     }
     public void Wait()
     {
@@ -67,7 +70,7 @@ public class Customer : MonoBehaviour
     {
 
         yield return new WaitForSeconds(waitTime);
-        order = OrderManager.Instance.SelectRandomOrder();
+        order = orderManager.SelectRandomOrder();
         table.order = order;
         table.OnOrderSet(order);
         customerUI.BeginTimer();

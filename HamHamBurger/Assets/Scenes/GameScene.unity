@@ -2199,6 +2199,17 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &2064428787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6261724945035874204, guid: ba632e3a58f1b534b9116bf95c7312b2, type: 3}
+  m_PrefabInstance: {fileID: 6261724945711170357}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1509c0e14c9e69e449889812b78f8dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2081237795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2317,6 +2328,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
   m_PrefabInstance: {fileID: 2081237795}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2094865607 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 267942406607238496, guid: d5b51b32c5d22cb4299936f2c46a232f, type: 3}
+  m_PrefabInstance: {fileID: 267942405543132921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f6ef966165cba4b828686defa31e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &267942405543132921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2571,6 +2593,14 @@ PrefabInstance:
       propertyPath: outside
       value: 
       objectReference: {fileID: 112599563}
+    - target: {fileID: 1339124394037876722, guid: 0b56cedf2983e58488117b6ff4616161, type: 3}
+      propertyPath: orderManager
+      value: 
+      objectReference: {fileID: 2064428787}
+    - target: {fileID: 1339124394037876722, guid: 0b56cedf2983e58488117b6ff4616161, type: 3}
+      propertyPath: _tableManager
+      value: 
+      objectReference: {fileID: 2094865607}
     - target: {fileID: 1339124394037876723, guid: 0b56cedf2983e58488117b6ff4616161, type: 3}
       propertyPath: m_Name
       value: CustomerManager
@@ -2825,6 +2855,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5924643343892102178, guid: 9e5fd3665a9c50c4d809e5963bd72881, type: 3}
+      propertyPath: tableManager
+      value: 
+      objectReference: {fileID: 2094865607}
     - target: {fileID: 5924643343892102178, guid: 9e5fd3665a9c50c4d809e5963bd72881, type: 3}
       propertyPath: levels.Array.size
       value: 2

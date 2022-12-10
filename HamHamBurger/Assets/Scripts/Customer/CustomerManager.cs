@@ -21,6 +21,7 @@ public class CustomerManager : MonoBehaviour
     public Transform outside;
 
     public List<Customer> customers;
+    public OrderManager orderManager;
     TableManager _tableManager;
 
     private void Start()
