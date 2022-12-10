@@ -21,6 +21,7 @@ public class GamePlayManager : MonoBehaviour
     public int customerCount = 0;
     public static UnityAction OnGameEnd;
     private IEnumerator coroutine;
+    public CustomerManager _customerManager;
     void Start()
     {
         //LoadGame();
@@ -28,7 +29,7 @@ public class GamePlayManager : MonoBehaviour
     }
     public void StartCreateCustomers()
     {
-        CustomerManager.Instance.AddNewCustomer();
+        _customerManager.AddNewCustomer();
         customerCount++;
         coroutine = WaitAndSpawn(LevelManager.Instance.currentLevel.levelData.CustomerWaitTime);
         StartCoroutine(coroutine);
@@ -38,14 +39,14 @@ public class GamePlayManager : MonoBehaviour
         while (customerCount < LevelManager.Instance.currentLevel.levelData.CustomerCount)
         {
             yield return new WaitForSeconds(waitTime);
-            CustomerManager.Instance.AddNewCustomer();
+            _customerManager.AddNewCustomer();
             customerCount++;
         }
     }
     public bool IsGameEnd()
     {
         bool gameEnd = false;
-        if (customerCount == LevelManager.Instance.currentLevel.levelData.CustomerCount && CustomerManager.Instance.customers.Count == 0)
+        if (customerCount == LevelManager.Instance.currentLevel.levelData.CustomerCount && _customerManager.customers.Count == 0)
         {
             gameEnd = true;
             OnGameEnd?.Invoke();

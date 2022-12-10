@@ -12,8 +12,10 @@ public class Customer : MonoBehaviour
     public AnimatorController animatorController;
     public FoodData order;
     CustomerUI customerUI;
+    public CustomerManager _customerManager;
     private void Awake()
     {
+        _customerManager = GetComponentInParent<CustomerManager>();
         agent = GetComponent<NavMeshAgent>();
         animatorController = GetComponentInChildren<AnimatorController>();
         customerUI = GetComponent<CustomerUI>();
@@ -39,14 +41,14 @@ public class Customer : MonoBehaviour
     }
     public void GetOut()
     {
-        agent.SetDestination(CustomerManager.Instance.door.position);
+        agent.SetDestination(_customerManager.door.position);
         table.isEmpty = true;
         table.isOrderCame = false;
         TableManager.Instance.UpdateEmptyTables();
     }
     public void Leave()
     {
-        MoveTarget(CustomerManager.Instance.outside.position);
+        MoveTarget(_customerManager.outside.position);
         //agent.SetDestination(CustomerManager.Instance.outside.position);
         customerUI.CloseTimeImage();
         //Debug.Log("closed");

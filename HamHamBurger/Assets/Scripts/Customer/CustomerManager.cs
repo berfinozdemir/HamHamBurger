@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
 {
-    #region Singleton
-    public static CustomerManager Instance;
-    private void Awake()
-    {
-        if (Instance)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
-    #endregion 
+    //#region Singleton
+    //public static CustomerManager Instance;
+    //private void Awake()
+    //{
+    //    if (Instance)
+    //    {
+    //        Destroy(gameObject);
+    //        return;
+    //    }
+    //    Instance = this;
+    //}
+    //#endregion 
     public GameObject customerPrefab;
     public Transform door;
     public Transform outside;
