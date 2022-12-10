@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 public class GamePlayManager : MonoBehaviour
 {
-
     #region Singleton
     public static GamePlayManager Instance;
     private void Awake()
@@ -19,9 +18,8 @@ public class GamePlayManager : MonoBehaviour
     }
     #endregion
     public GameObject customerPrefab;
-    int customerCount = 0;
+    public int customerCount = 0;
     public static UnityAction OnGameEnd;
-
     private IEnumerator coroutine;
     void Start()
     {
@@ -32,7 +30,7 @@ public class GamePlayManager : MonoBehaviour
     {
         CustomerManager.Instance.AddNewCustomer();
         customerCount++;
-        coroutine = WaitAndSpawn(DataManager.Instance.CustomerCameTime);
+        coroutine = WaitAndSpawn(LevelManager.Instance.currentLevel.levelData.CustomerWaitTime);
         StartCoroutine(coroutine);
     }
     IEnumerator WaitAndSpawn(float waitTime)
@@ -51,8 +49,8 @@ public class GamePlayManager : MonoBehaviour
         {
             gameEnd = true;
             OnGameEnd?.Invoke();
+            customerCount = 0;
         }
-        customerCount = 0;
         return gameEnd;
     }
     public void OnGameSuccess()

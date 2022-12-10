@@ -7,4 +7,8 @@ public class LevelData : ScriptableObject
 {
     public int TableCount;
     public int CustomerCount;
+    public float OrderTime;
+    public float CustomerCameTime;
+    public float CustomerWaitTime;
+
 }

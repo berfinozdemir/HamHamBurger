@@ -30,7 +30,7 @@ public class CustomerUI : MonoBehaviour
         OpenTimeImage();
         TimeOut = false;
         filledTimeImage.fillAmount = 0;
-        StartCoroutine(Timer(DataManager.Instance.customerWaitTime));
+        StartCoroutine(Timer(LevelManager.Instance.currentLevel.levelData.CustomerWaitTime));
     }
     bool isStop;
     IEnumerator Timer(float totalTime)

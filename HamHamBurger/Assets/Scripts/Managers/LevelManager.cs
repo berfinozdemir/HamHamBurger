@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     #region Singleton
     public static LevelManager Instance;
+    private DataManager _dataManager;
     private void Awake()
     {
         if (Instance)
@@ -27,14 +28,15 @@ public class LevelManager : MonoBehaviour
     public void LoadLevel(bool isSuccess)
     {
         if (isSuccess)
-            levelIndex++;
+            DataManager.CurrentLevel++;
         if (currentLevel)
         {
             Destroy(currentLevel.gameObject);
 
         }
-        var level = Instantiate(levels[levelIndex % levels.Count]);
+        var level = Instantiate(levels[(DataManager.CurrentLevel-1)% levels.Count]);
         currentLevel = level.GetComponent<Level>();
+        UIManager.Instance.UpdateLevelText();
         TableManager.Instance.CreateTables();
         GamePlayManager.Instance.StartCreateCustomers();
         //CurrentLevelData = currentLevel.GetComponent<Level>().levelData;
@@ -45,6 +47,5 @@ public class LevelManager : MonoBehaviour
     }
     void Start()
     {
-
     }
 }

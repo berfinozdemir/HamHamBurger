@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TableCount: 2
   CustomerCount: 2
+  OrderTime: 1
+  CustomerCameTime: 10
+  CustomerWaitTime: 10

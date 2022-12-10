@@ -25,25 +25,24 @@ public class DataManager : MonoBehaviour
             OnCurrencyUpdate?.Invoke();
         }
     }
-    //public float BurgerCookTime;// {get => Food.foodData };
-    //public float CokeCookTime;
-    //public float ChipsCookTime;
     public float OrderTime = 2f;
-    public float CustomerCameTime = 10f;
-    public int customerCount = 2;
-    public float customerWaitTime = 5f;
-    //public float money;
-    public int tableCount;
+    //public float CustomerCameTime = 10f;
+    //public float CustomerWaitTime = 5f;
     public static UnityAction OnCurrencyUpdate;
-
-    //public void Subsrice()
-    //{
-    //    OnMoneyUpdate += GetPayment();
-    //}
     public void GetPayment(int price)
     {
         Money += price;
         OnCurrencyUpdate?.Invoke();
-        //Debug.Log(Money);
+    }
+    public static UnityAction OnLevelUpdate;
+    public static int CurrentLevel
+    {
+        get => PlayerPrefs.GetInt("CurrentLevel", 1);
+        set
+        {
+            PlayerPrefs.SetInt("CurrentLevel", value);
+
+            OnLevelUpdate?.Invoke();
+        }
     }
 }

@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI moneyTxt;
     public GameObject SuccessPanel;
     public GameObject GameOverPanel;
+    public TextMeshProUGUI LevelText;
     private void Start()
     {
         UpdateMoneyText();
@@ -61,6 +62,10 @@ public class UIManager : MonoBehaviour
     {
         DataManager.OnCurrencyUpdate -= UpdateMoneyText;
         GamePlayManager.OnGameEnd -= OpenSuccessUI;
+    }
+    public void UpdateLevelText()
+    {
+        LevelText.text = "LEVEL " + DataManager.CurrentLevel.ToString();
     }
     private void OnDisable()
     {
