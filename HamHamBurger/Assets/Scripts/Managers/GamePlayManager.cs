@@ -14,7 +14,7 @@ public class GamePlayManager : MonoBehaviour
             return;
         }
         Instance = this;
-
+        Subscribe();
     }
     #endregion
     public GameObject customerPrefab;
@@ -26,6 +26,14 @@ public class GamePlayManager : MonoBehaviour
     {
         //LoadGame();
         
+    }
+    void Subscribe()
+    {
+        LevelManager.OnLevelUpdate += OnNewLevelLoad;
+    }
+    void Unsubscribe()
+    {
+        LevelManager.OnLevelUpdate -= OnNewLevelLoad;
     }
     public void StartCreateCustomers()
     {
@@ -63,12 +71,18 @@ public class GamePlayManager : MonoBehaviour
     {
         UIManager.Instance.OpenGameOverPanel();
         Time.timeScale = 0;
+        //LevelManager.Instance.LoadLevel(false);
     }
-    public void LoadGame()
+    public void OnNewLevelLoad()
     {
         UIManager.Instance.CloseGameOverPanel();
         UIManager.Instance.CloseSuccessPanel();
+        TableManager.Instance.CreateTables();
+        StartCreateCustomers();
         Time.timeScale = 1;
-        LevelManager.Instance.LoadLevel(true);
+    }
+    private void OnDisable()
+    {
+        Unsubscribe();
     }
 }

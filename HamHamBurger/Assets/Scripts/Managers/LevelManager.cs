@@ -8,7 +8,6 @@ public class LevelManager : MonoBehaviour
 {
     #region Singleton
     public static LevelManager Instance;
-    private DataManager _dataManager;
     private void Awake()
     {
         if (Instance)
@@ -17,40 +16,27 @@ public class LevelManager : MonoBehaviour
             return;
         }
         Instance = this;
-        LoadLevel(false);
     }
     #endregion
-    public List<NavMeshSurface> surafecs;
-    public List<GameObject> levels;
-    public Level currentLevel;
-    private int levelIndex;
-    private LevelData CurrentLevelData;
-    
-    void Unsubscribe()
+    private void Start()
     {
+        LoadLevel(false);
 
     }
+    private DataManager _dataManager;
+    public List<GameObject> levels;
+    public Level currentLevel;
+    public static UnityAction OnLevelUpdate;
     public void LoadLevel(bool isSuccess)
     {
         if (isSuccess)
             DataManager.CurrentLevel++;
         if (currentLevel)
-        {
             Destroy(currentLevel.gameObject);
 
-        }
         var level = Instantiate(levels[(DataManager.CurrentLevel-1)% levels.Count]);
         currentLevel = level.GetComponent<Level>();
-        //UIManager.Instance.UpdateLevelText();
-        TableManager.Instance.CreateTables();
-        GamePlayManager.Instance.StartCreateCustomers();
-        //CurrentLevelData = currentLevel.GetComponent<Level>().levelData;
-        Time.timeScale = 1f;
-        UIManager.Instance.CloseGameOverPanel();
-        UIManager.Instance.CloseSuccessPanel();
-          
+        OnLevelUpdate?.Invoke();
     }
-    void Start()
-    {
-    }
+
 }

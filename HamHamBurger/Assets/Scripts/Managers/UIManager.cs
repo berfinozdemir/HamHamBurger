@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class UIManager : MonoBehaviour
 {
 
@@ -21,6 +23,8 @@ public class UIManager : MonoBehaviour
     public GameObject SuccessPanel;
     public GameObject GameOverPanel;
     public TextMeshProUGUI LevelText;
+    public Button RetryButton;
+    public Button NextButton;
     private void Start()
     {
         UpdateMoneyText();
@@ -28,12 +32,23 @@ public class UIManager : MonoBehaviour
         CloseSuccessPanel();
         CloseGameOverPanel();
         UpdateLevelText();
+        
+    }
+    void OnRetryButtonClicked()
+    {
+        LevelManager.Instance.LoadLevel(false);
+    }
+    void OnNextButtonClicked()
+    {
+        LevelManager.Instance.LoadLevel(true);
     }
     public void Subscribe()
     {
         DataManager.OnCurrencyUpdate += UpdateMoneyText;
         GamePlayManager.OnGameEnd += OpenSuccessUI;
         DataManager.OnLevelUpdate += UpdateLevelText;
+        RetryButton.onClick.AddListener(OnRetryButtonClicked);
+        NextButton.onClick.AddListener(OnNextButtonClicked);
     }
     public void OpenSuccessUI()
     {
@@ -65,6 +80,8 @@ public class UIManager : MonoBehaviour
         DataManager.OnCurrencyUpdate -= UpdateMoneyText;
         GamePlayManager.OnGameEnd -= OpenSuccessUI;
         DataManager.OnLevelUpdate -= UpdateLevelText;
+        RetryButton.onClick.RemoveAllListeners();
+        NextButton.onClick.RemoveAllListeners();
     }
     public void UpdateLevelText()
     {

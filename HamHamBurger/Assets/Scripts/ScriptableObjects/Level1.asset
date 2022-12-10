@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   TableCount: 2
-  CustomerCount: 2
+  CustomerCount: 1
   OrderTime: 1
   CustomerCameTime: 10
   CustomerWaitTime: 10

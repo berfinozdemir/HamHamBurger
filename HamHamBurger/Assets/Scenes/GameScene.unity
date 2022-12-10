@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 189186523}
   - component: {fileID: 189186522}
   m_Layer: 0
-  m_Name: Button
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,19 +233,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 189186523}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1329385967}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &189186523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,6 +1325,8 @@ MonoBehaviour:
   SuccessPanel: {fileID: 1950559508}
   GameOverPanel: {fileID: 1377533788}
   LevelText: {fileID: 957021003}
+  RetryButton: {fileID: 1996977330}
+  NextButton: {fileID: 189186522}
 --- !u!198 &1288643596 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 1126593647921314884, guid: 997f3e266514afb428d84bbe136d5d84, type: 3}
@@ -1372,17 +1362,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1329385967 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5924643343892102178, guid: 9e5fd3665a9c50c4d809e5963bd72881, type: 3}
-  m_PrefabInstance: {fileID: 5924643344783175117}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7e43dcbdbaf3647817036a056e0cbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1377533788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,7 +1826,7 @@ GameObject:
   - component: {fileID: 1996977331}
   - component: {fileID: 1996977330}
   m_Layer: 0
-  m_Name: Button
+  m_Name: RetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1916,19 +1895,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1996977331}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1329385967}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1996977331
 MonoBehaviour:
   m_ObjectHideFlags: 0
