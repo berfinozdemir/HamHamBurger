@@ -25,6 +25,11 @@ public class LevelManager : MonoBehaviour
     public Level currentLevel;
     private int levelIndex;
     private LevelData CurrentLevelData;
+    
+    void Unsubscribe()
+    {
+
+    }
     public void LoadLevel(bool isSuccess)
     {
         if (isSuccess)
@@ -36,7 +41,7 @@ public class LevelManager : MonoBehaviour
         }
         var level = Instantiate(levels[(DataManager.CurrentLevel-1)% levels.Count]);
         currentLevel = level.GetComponent<Level>();
-        UIManager.Instance.UpdateLevelText();
+        //UIManager.Instance.UpdateLevelText();
         TableManager.Instance.CreateTables();
         GamePlayManager.Instance.StartCreateCustomers();
         //CurrentLevelData = currentLevel.GetComponent<Level>().levelData;

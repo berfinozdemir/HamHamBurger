@@ -27,11 +27,13 @@ public class UIManager : MonoBehaviour
         Subscribe();
         CloseSuccessPanel();
         CloseGameOverPanel();
+        UpdateLevelText();
     }
     public void Subscribe()
     {
         DataManager.OnCurrencyUpdate += UpdateMoneyText;
         GamePlayManager.OnGameEnd += OpenSuccessUI;
+        DataManager.OnLevelUpdate += UpdateLevelText;
     }
     public void OpenSuccessUI()
     {
@@ -62,6 +64,7 @@ public class UIManager : MonoBehaviour
     {
         DataManager.OnCurrencyUpdate -= UpdateMoneyText;
         GamePlayManager.OnGameEnd -= OpenSuccessUI;
+        DataManager.OnLevelUpdate -= UpdateLevelText;
     }
     public void UpdateLevelText()
     {
