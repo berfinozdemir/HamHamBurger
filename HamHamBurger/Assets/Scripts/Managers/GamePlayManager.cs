@@ -68,14 +68,14 @@ public class GamePlayManager : MonoBehaviour
     //}
     public void OnGameOver()
     {
-        UIManager.Instance.OpenGameOverPanel();
+        UIManager.Instance.GameOverPanelEnabled(true);
         Time.timeScale = 0;
         //LevelManager.Instance.LoadLevel(false);
     }
     public void OnNewLevelLoad()
     {
-        UIManager.Instance.CloseGameOverPanel();
-        UIManager.Instance.CloseSuccessPanel();
+        UIManager.Instance.GameOverPanelEnabled(false);
+        UIManager.Instance.SuccessPanelEnabled(false);
         TableManager.Instance.CreateTables();
         StartCreateCustomers();
         Time.timeScale = 1;

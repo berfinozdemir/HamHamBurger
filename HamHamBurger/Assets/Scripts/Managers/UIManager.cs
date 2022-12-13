@@ -29,8 +29,8 @@ public class UIManager : MonoBehaviour
     {
         UpdateMoneyText();
         Subscribe();
-        CloseSuccessPanel();
-        CloseGameOverPanel();
+        SuccessPanelEnabled(false);
+        GameOverPanelEnabled(false);
         UpdateLevelText();
         
     }
@@ -52,28 +52,24 @@ public class UIManager : MonoBehaviour
     }
     public void OpenSuccessUI()
     {
-        OpenSuccessPanel();
+        SuccessPanelEnabled(true);
         Time.timeScale = 0;
     }
     public void UpdateMoneyText()
     {
         moneyTxt.text = DataManager.Money.ToString();
     }
-    public void OpenSuccessPanel()
+    public void SuccessPanelEnabled(bool enabled)
     {
-        SuccessPanel.SetActive(true);
+        SuccessPanel.SetActive(enabled);
     }
-    public void CloseSuccessPanel()
+    public void GameOverPanelEnabled(bool enabled)
     {
-        SuccessPanel.SetActive(false);
+        GameOverPanel.SetActive(enabled);
     }
-    public void OpenGameOverPanel()
+    public void UpdateLevelText()
     {
-        GameOverPanel.SetActive(true);
-    }
-    public void CloseGameOverPanel()
-    {
-        GameOverPanel.SetActive(false);
+        LevelText.text = "LEVEL " + DataManager.CurrentLevel.ToString();
     }
     private void Unsubscribe()
     {
@@ -83,10 +79,7 @@ public class UIManager : MonoBehaviour
         RetryButton.onClick.RemoveAllListeners();
         NextButton.onClick.RemoveAllListeners();
     }
-    public void UpdateLevelText()
-    {
-        LevelText.text = "LEVEL " + DataManager.CurrentLevel.ToString();
-    }
+    
     private void OnDisable()
     {
         Unsubscribe();
