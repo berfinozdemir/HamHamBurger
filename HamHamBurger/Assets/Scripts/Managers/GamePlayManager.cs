@@ -22,6 +22,8 @@ public class GamePlayManager : MonoBehaviour
     public static UnityAction OnGameEnd;
     private IEnumerator coroutine;
     public CustomerManager _customerManager;
+    public int LevelMoney;
+    public static UnityAction OnLevelMoneyUpdate;
     void Start()
     {
         LevelManager.Instance.LoadLevel(false);
@@ -56,16 +58,27 @@ public class GamePlayManager : MonoBehaviour
         if (customerCount == LevelManager.Instance.currentLevel.levelData.CustomerCount && _customerManager.customers.Count == 0)
         {
             gameEnd = true;
+            OnGameSuccess();
             OnGameEnd?.Invoke();
             customerCount = 0;
         }
         return gameEnd;
     }
-    //public void OnGameSuccess()
-    //{
-    //    Time.timeScale = 0;
-    //    // LevelManager.Instance.OnGameSuccess();
-    //}
+    public void GetPayment(int price)
+    {
+        LevelMoney += price;
+        OnLevelMoneyUpdate?.Invoke();
+        
+        //OnCurrencyUpdate?.Invoke();
+    }
+    public void OnGameSuccess()
+    {
+        DataManager.Instance.UpdateTotalMoney(LevelMoney);
+        UIManager.Instance.UpdateCurrency();
+        LevelMoney = 0;
+        OnLevelMoneyUpdate?.Invoke();
+        // burada currency update yapýlacak
+    }
     public void OnGameOver()
     {
         UIManager.Instance.GameOverPanelEnabled(true);

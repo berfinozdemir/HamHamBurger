@@ -79,6 +79,6 @@ public class Customer : MonoBehaviour
     public bool isOrdered;
     public void PayFood()
     {
-        DataManager.Instance.GetPayment(order.price);
+        GamePlayManager.Instance.GetPayment(order.price);
     }
 }

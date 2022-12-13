@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     }
     #endregion
     public TextMeshProUGUI moneyTxt;
+    public TextMeshProUGUI totalCurrency;
     public GameObject SuccessPanel;
     public GameObject GameOverPanel;
     public TextMeshProUGUI LevelText;
@@ -44,7 +45,8 @@ public class UIManager : MonoBehaviour
     }
     public void Subscribe()
     {
-        DataManager.OnCurrencyUpdate += UpdateMoneyText;
+        DataManager.OnCurrencyUpdate += UpdateCurrency;
+        GamePlayManager.OnLevelMoneyUpdate += UpdateMoneyText;
         GamePlayManager.OnGameEnd += OpenSuccessUI;
         DataManager.OnLevelUpdate += UpdateLevelText;
         RetryButton.onClick.AddListener(OnRetryButtonClicked);
@@ -57,7 +59,11 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateMoneyText()
     {
-        moneyTxt.text = DataManager.Money.ToString();
+        moneyTxt.text = GamePlayManager.Instance.LevelMoney.ToString();
+    }
+    public void UpdateCurrency()
+    {
+        totalCurrency.text = DataManager.Money.ToString();
     }
     public void SuccessPanelEnabled(bool enabled)
     {

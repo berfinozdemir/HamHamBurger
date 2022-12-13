@@ -25,15 +25,15 @@ public class DataManager : MonoBehaviour
             OnCurrencyUpdate?.Invoke();
         }
     }
+    public void UpdateTotalMoney(int money)
+    {
+        Money += money;
+    }
     public float OrderTime = 2f;
     //public float CustomerCameTime = 10f;
     //public float CustomerWaitTime = 5f;
     public static UnityAction OnCurrencyUpdate;
-    public void GetPayment(int price)
-    {
-        Money += price;
-        OnCurrencyUpdate?.Invoke();
-    }
+    
     public static UnityAction OnLevelUpdate;
     public static int CurrentLevel
     {
