@@ -22,6 +22,7 @@ public class OrderState : BaseState
         if (stateManager.GetComponent<Customer>().table.isOrderCame)
         {
             customerUI.filledTimeImage.fillAmount = 0;
+            
             stateManager.SwitchState(stateManager.EatState);
         }
 

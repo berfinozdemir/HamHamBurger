@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 750920339598225925}
   - component: {fileID: 1855874709030958511}
   - component: {fileID: 7038420952241430624}
+  - component: {fileID: 1027193655}
+  - component: {fileID: 3544151865766879489}
   m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
@@ -57,6 +59,7 @@ MonoBehaviour:
   orderImg: {fileID: 8966027311095438278}
   isOrderCame: 0
   isCustomerLeft: 0
+  target: {fileID: 1027193655}
 --- !u!65 &750920339598225925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -102,6 +105,35 @@ MonoBehaviour:
   m_Center: {x: 0, y: 1, z: 0}
   m_Area: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &1027193655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629465033271485148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 411060de4483b5e4c9847cd3cbc18554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: {r: 1, g: 0, b: 0, a: 1}
+  needBoxIndicator: 1
+  needArrowIndicator: 1
+  needDistanceText: 0
+  indicator: {fileID: 0}
+--- !u!114 &3544151865766879489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629465033271485148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc9e9c5d0aae014b8f61adb788fff66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1750928392188811213
 GameObject:
   m_ObjectHideFlags: 0

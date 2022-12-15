@@ -12,8 +12,10 @@ public class Table : MonoBehaviour
     public Image orderImg;
     public bool isOrderCame;
     public bool isCustomerLeft;
+    public Target target;
     private void Start()
     {
+        TargetEnabled(false);
         CloseOrderImage();
         playerPoint.GetComponent<Collider>().enabled = false;
     }
@@ -22,11 +24,13 @@ public class Table : MonoBehaviour
         var selectedOrderSprite = order.foodSprite;
         OpenOrderImage(selectedOrderSprite);
         playerPoint.GetComponent<Collider>().enabled = true;
+        TargetEnabled(true);
     }
     public void OnOrderCame()
     {
         CloseOrderImage();
         playerPoint.GetComponent<Collider>().enabled = false;
+        TargetEnabled(false);
     }
     public void CustomerLeft()
     {
@@ -45,5 +49,9 @@ public class Table : MonoBehaviour
     {
         orderImg.enabled = true;
         orderImg.sprite = sprite;
+    }
+    public void TargetEnabled(bool enabled)
+    {
+        target.enabled = enabled;
     }
 }
