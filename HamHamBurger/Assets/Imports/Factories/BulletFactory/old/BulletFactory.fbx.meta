@@ -46,12 +46,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: GradientMTL
-    second: {fileID: 2100000, guid: e860da07fbe142e4e9f15fae571caaf2, type: 2}
+    second: {fileID: 2100000, guid: 79a76b76b2a80414c970c899c48031a0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: InsideMTL
-    second: {fileID: 2100000, guid: f21f186b388a233479e2ee9c5080d7d9, type: 2}
+    second: {fileID: 2100000, guid: 79a76b76b2a80414c970c899c48031a0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -61,17 +61,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: OutsideMTL
-    second: {fileID: 2100000, guid: b13d5135fce7d2845864611fbd432d68, type: 2}
+    second: {fileID: 2100000, guid: 79a76b76b2a80414c970c899c48031a0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Piston
-    second: {fileID: 2100000, guid: 8ac249b314b2c144fb65c8708dafeff1, type: 2}
+    second: {fileID: 2100000, guid: 79a76b76b2a80414c970c899c48031a0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: WhiteMTL
-    second: {fileID: 2100000, guid: f59be8668a7f0034cb8fae2be54d9db6, type: 2}
+    second: {fileID: 2100000, guid: 79a76b76b2a80414c970c899c48031a0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
