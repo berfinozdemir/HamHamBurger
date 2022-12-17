@@ -23,8 +23,8 @@ public class PlayerService : MonoBehaviour
     {
         //Debug.Log(other.isCustomerLeft + " iscustomerleft");
         var food = GetComponentInChildren<Food>();
-        if (!food.foodData || food.foodData != other.order)
-            return;
+        ////if (!food.foodData || food.foodData != other.order)
+        ////    return;
         //if (FoodController.Instance.isOrderServiced || FoodController.Instance.currentFoodType != other.GetComponentInParent<Table>().GetOrderType().foodType)
         //    return;
         if (FoodController.Instance.isOrderServiced)
